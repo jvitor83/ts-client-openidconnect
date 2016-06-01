@@ -1,0 +1,46 @@
+{
+  "name": "ts-client-openidconnect",
+  "version": "1.0.0",
+  "description": "A lightweight Typescript Security Authentication Framework (based on OIDC Manager).",
+  "main": "dist/prod/js/src/index.js",
+  "typings": "dist/prod/definitions/src/index.d.ts",
+  "scripts": {
+    "test": "npm run test:phantom",
+    "test:phantom": "npm run build&&phantomjs --web-security=false --local-to-remote-url-access=true spec/run-jasmine.js file:///%cd%/spec/SpecRunner.html",
+    "test:karma": "npm run build&&karma start karma.conf.js --log-level debug --single-run",
+    "build": "gulp"
+  },
+  "author": "João Vitor Paes de Barros do Carmo <jvitor83@hotmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "del": "^2.2.0",
+    "dts-generator": "^1.7.0",
+    "es6-module-loader": "^0.17.11",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jasmine": "^2.3.0",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-tslint": "^5.0.0",
+    "gulp-typescript": "^2.13.1",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-systemjs": "^0.13.0",
+    "merge2": "^1.0.2",
+    "phantom-jasmine": "^0.3.0",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.7",
+    "requirejs": "^2.2.0",
+    "run-sequence": "^1.1.5",
+    "systemjs": "^0.19.27",
+    "tslint": "^3.9.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  },
+  "dependencies": {
+  }
+}

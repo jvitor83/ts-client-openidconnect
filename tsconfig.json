@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "dist/dev",
+        "rootDir": "app",
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "moduleResolution": "node"
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "typings/browser.d.ts",
+        "typings/browser",
+        "app"
+    ]
+}

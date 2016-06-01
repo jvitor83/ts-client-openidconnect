@@ -1,0 +1,27 @@
+{
+  "name": "pjmt-auth",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "gulp": "registry:dt/gulp#3.8.0+20160316155526",
+    "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160317120654",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
+    "merge2": "registry:dt/merge2#0.3.6+20160316155526",
+    "node": "registry:dt/node#4.0.0+20160412142033",
+    "oidc-token-manager": "registry:dt/oidc-token-manager#0.0.0+20160505172800",
+    "orchestrator": "registry:dt/orchestrator#0.0.0+20160316155526",
+    "systemjs": "registry:dt/systemjs#0.18.4+20160417155658",
+    "typescript": "registry:dt/typescript#0.4.0+20160317120654"
+  },
+  "ambientDevDependencies": {
+    "browser-sync": "registry:dt/browser-sync#0.0.0+20160316155526",
+    "gulp-concat": "registry:dt/gulp-concat#0.0.0+20160316155526",
+    "gulp-tslint": "registry:dt/gulp-tslint#3.6.0+20160316155526",
+    "karma": "registry:dt/karma#0.13.9+20160501125529",
+    "karma-jasmine": "registry:dt/karma-jasmine#0.0.0+20160316155526",
+    "phantomjs": "registry:dt/phantomjs#1.9.0+20160316155526",
+    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526",
+    "systemjs": "registry:dt/systemjs#0.18.4+20160417155658",
+    "vinyl": "registry:dt/vinyl#1.1.0+20160316155526"
+  }
+}

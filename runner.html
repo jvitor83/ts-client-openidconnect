@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Jasmine Test Runner</title>
+  </head>
+
+  <body>
+
+    <script type="text/javascript" src="C:\Users\23571\AppData\Roaming\npm\node_modules\phantom-jasmine\vendor/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="C:\Users\23571\AppData\Roaming\npm\node_modules\phantom-jasmine\vendor/jasmine-1.2.0/jasmine-html.js"></script>
+
+    <link rel="stylesheet" href="C:\Users\23571\AppData\Roaming\npm\node_modules\phantom-jasmine\vendor/jasmine-1.2.0/jasmine.css" title="" type="" />
+    
+    
+
+    
+    <script type="text/javascript" src="C:\Users\23571\AppData\Roaming\npm\node_modules\phantom-jasmine\lib/console-runner.js"></script>
+
+    <script type="text/javascript">
+      var console_reporter = new jasmine.ConsoleReporter(false, "none");
+
+      jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+      jasmine.getEnv().addReporter(console_reporter);
+      jasmine.getEnv().execute();
+    </script>
+  </body>
+</html>
