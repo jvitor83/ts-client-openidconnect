@@ -556,11 +556,11 @@ export class TokenFlow
         {
             if(url.indexOf('#') !== -1)
             {
-                url.substr(url.indexOf('#'),url.length).replace('?','').replace('#','').split('&').reduce(function(s,c){var t=c.split('=');s[t[0]]=t[1];return s;},{});
+                return url.substr(url.indexOf('#'),url.length).replace('?','').replace('#','').split('&').reduce(function(s,c){var t=c.split('=');s[t[0]]=t[1];return s;},{});
             }
             else
             {
-                url.substr(url.indexOf('?'),url.length).replace('?','').replace('#','').split('&').reduce(function(s,c){var t=c.split('=');s[t[0]]=t[1];return s;},{});
+                return url.substr(url.indexOf('?'),url.length).replace('?','').replace('#','').split('&').reduce(function(s,c){var t=c.split('=');s[t[0]]=t[1];return s;},{});
             }
         }
 
