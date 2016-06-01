@@ -30,6 +30,6 @@ export declare class ClientOAuth2Token {
 export declare class TokenFlow {
     client: ClientOAuth2;
     constructor(client: any);
-    getUri(options: any): string;
-    getToken(uri: any, state: any, options: any): ClientOAuth2Token;
+    getUri(options?: any): string;
+    getToken(uri: any, state?: any, options?: any): ClientOAuth2Token;
 }

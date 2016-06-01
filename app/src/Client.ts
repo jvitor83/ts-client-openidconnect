@@ -510,12 +510,12 @@ export class TokenFlow
         this.client = client;
     }
     
-    public getUri(options) {
+    public getUri(options?:any) {
         options = extend(this.client.options, options);
         return createUri(options, 'token');
     }
 
-    public getToken(uri, state, options) 
+    public getToken(uri, state?, options?) 
     {
         //options = extend(this.client.options, options);
 

@@ -1,7 +1,7 @@
 {
   "name": "ts-client-openidconnect",
   "version": "1.0.0",
-  "description": "A lightweight Typescript Security Authentication Framework (based on OIDC Manager).",
+  "description": "A lightweight Typescript Client for the OpenID Connect specification.",
   "main": "dist/prod/js/src/index.js",
   "typings": "dist/prod/definitions/src/index.d.ts",
   "scripts": {

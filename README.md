@@ -1,1 +1,1 @@
-# ts-security-authentication-web
+# ts-client-openidconnect
