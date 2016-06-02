@@ -20,16 +20,25 @@ export declare class ClientOAuth2Token {
     accessToken: string;
     refreshToken: string;
     expires: Date;
+    identityToken: string;
     constructor(client: any, data: any);
     expiresIn(duration: any): Date;
     sign(requestObject: any): any;
     request(options: any): any;
     refresh(options: any): any;
     expired: boolean;
+    getUserInfo(accessToken: string): UserInfoResponse;
 }
 export declare class TokenFlow {
     client: ClientOAuth2;
     constructor(client: any);
     getUri(options?: any): string;
     getToken(uri: any, state?: any, options?: any): ClientOAuth2Token;
+}
+export declare abstract class Claimable {
+    getClaim(claimName: string): any;
+}
+export declare class UserInfoResponse extends Claimable {
+    sub: string;
+    constructor(sub: string);
 }

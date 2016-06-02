@@ -338,6 +338,7 @@ export class ClientOAuth2Token
     accessToken :string;
     refreshToken :string;
     expires :Date;
+    identityToken: string;
     
 
     
@@ -347,6 +348,7 @@ export class ClientOAuth2Token
         this.tokenType = data.token_type && data.token_type.toLowerCase();
         this.accessToken = data.access_token;
         this.refreshToken = data.refresh_token;
+        this.identityToken = data.id_token;
 
         this.expiresIn(data.expires_in);
     }
@@ -445,6 +447,24 @@ export class ClientOAuth2Token
 
         return false;
     }
+    
+         
+    public getUserInfo(accessToken: string) : UserInfoResponse
+    {
+        let response = this.client._request(requestOptions({
+        url: this.client.options.userInfoUri,
+        method: 'GET',
+        headers: extend(DEFAULT_HEADERS, {
+            Authorization: 'Bearer ' + accessToken
+        })
+        }, this.client.options));
+        
+        let userInfoResponse = new UserInfoResponse(response.sub);
+        userInfoResponse = extend(userInfoResponse, response);
+        
+        return userInfoResponse;
+    }
+        
 }
 
 
@@ -570,8 +590,25 @@ export class TokenFlow
 
         // Initalize a new token and return.
         return new ClientOAuth2Token(this.client, data);
-        }
     }
+   
+}
+    
+export abstract class Claimable
+{
+    getClaim(claimName: string)
+    {
+        return (<any>this)[claimName];
+    }
+}
+
+export class UserInfoResponse extends Claimable
+{
+    constructor(public sub:string) 
+    {
+        super();
+    }
+}
     
 // /**
 //  * Support client credentials OAuth 2.0 grant.
