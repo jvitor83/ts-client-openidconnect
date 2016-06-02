@@ -50,6 +50,10 @@ export declare class ClientOAuth2Token {
     request(options: any): any;
     refresh(options: any): any;
     expired: boolean;
+}
+export declare abstract class Flow {
+    client: ClientOAuth2;
+    constructor(client: any);
     getUserInfo(accessToken: string): UserInfoResponse;
 }
 /**
@@ -59,9 +63,7 @@ export declare class ClientOAuth2Token {
  *
  * @param {ClientOAuth2} client
  */
-export declare class TokenFlow {
-    client: ClientOAuth2;
-    constructor(client: any);
+export declare class TokenFlow extends Flow {
     getUri(options?: any): string;
     getToken(uri: any, state?: any, options?: any): ClientOAuth2Token;
 }

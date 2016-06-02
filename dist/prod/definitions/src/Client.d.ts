@@ -27,11 +27,13 @@ export declare class ClientOAuth2Token {
     request(options: any): any;
     refresh(options: any): any;
     expired: boolean;
-    getUserInfo(accessToken: string): UserInfoResponse;
 }
-export declare class TokenFlow {
+export declare abstract class Flow {
     client: ClientOAuth2;
     constructor(client: any);
+    getUserInfo(accessToken: string): UserInfoResponse;
+}
+export declare class TokenFlow extends Flow {
     getUri(options?: any): string;
     getToken(uri: any, state?: any, options?: any): ClientOAuth2Token;
 }

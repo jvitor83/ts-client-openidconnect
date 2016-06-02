@@ -449,21 +449,7 @@ export class ClientOAuth2Token
     }
     
          
-    public getUserInfo(accessToken: string) : UserInfoResponse
-    {
-        let response = this.client._request(requestOptions({
-        url: this.client.options.userInfoUri,
-        method: 'GET',
-        headers: extend(DEFAULT_HEADERS, {
-            Authorization: 'Bearer ' + accessToken
-        })
-        }, this.client.options));
-        
-        let userInfoResponse = new UserInfoResponse(response.sub);
-        userInfoResponse = extend(userInfoResponse, response);
-        
-        return userInfoResponse;
-    }
+
         
 }
 
@@ -515,14 +501,7 @@ export class ClientOAuth2Token
 //     })
 // }
 
-/**
- * Support implicit OAuth 2.0 grant.
- *
- * Reference: http://tools.ietf.org/html/rfc6749#section-4.2
- *
- * @param {ClientOAuth2} client
- */
-export class TokenFlow 
+export abstract class Flow
 {
     client: ClientOAuth2;
     
@@ -530,6 +509,32 @@ export class TokenFlow
         this.client = client;
     }
     
+    public getUserInfo(accessToken: string) : UserInfoResponse
+    {
+        let response = this.client._request(requestOptions({
+        url: this.client.options.userInfoUri,
+        method: 'GET',
+        headers: extend(DEFAULT_HEADERS, {
+            Authorization: 'Bearer ' + accessToken
+        })
+        }, this.client.options));
+        
+        let userInfoResponse = new UserInfoResponse(response.sub);
+        userInfoResponse = extend(userInfoResponse, response);
+        
+        return userInfoResponse;
+    }
+}
+
+/**
+ * Support implicit OAuth 2.0 grant.
+ *
+ * Reference: http://tools.ietf.org/html/rfc6749#section-4.2
+ *
+ * @param {ClientOAuth2} client
+ */
+export class TokenFlow extends Flow
+{
     public getUri(options?:any) {
         options = extend(this.client.options, options);
         return createUri(options, 'token');
