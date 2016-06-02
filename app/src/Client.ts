@@ -335,10 +335,27 @@ export class ClientOAuth2Token
     client :ClientOAuth2;
     data :any;
     tokenType :string;
-    accessToken :string;
     refreshToken :string;
     expires :Date;
     identityToken: string;
+    
+    _accessToken :string;
+    
+    
+    get accessToken() :string
+    {
+        if(this.expired)
+        {
+            this.refresh();
+        }
+
+        return this._accessToken;
+    }
+    
+    set accessToken(value:string) 
+    {
+        this._accessToken = value;
+    }
     
 
     
@@ -401,7 +418,7 @@ export class ClientOAuth2Token
     }
     
     
-    public refresh(options):any {
+    public refresh(options?):any {
         var self = this;
 
         options = extend(this.client.options, options);
@@ -423,6 +440,7 @@ export class ClientOAuth2Token
             }
         }, options));
         
+        
         let body = handleAuthResponse(response);
         
         //TODO: Tratar quando exception
@@ -442,7 +460,7 @@ export class ClientOAuth2Token
     get expired() : boolean
     {
         if (this.expires) {
-            return Date.now() > this.expires.getTime()
+            return Date.now() > this.expires.getTime();
         }
 
         return false;

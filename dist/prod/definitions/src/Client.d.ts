@@ -17,15 +17,16 @@ export declare class ClientOAuth2Token {
     client: ClientOAuth2;
     data: any;
     tokenType: string;
-    accessToken: string;
     refreshToken: string;
     expires: Date;
     identityToken: string;
+    _accessToken: string;
+    accessToken: string;
     constructor(client: any, data: any);
     expiresIn(duration: any): Date;
     sign(requestObject: any): any;
     request(options: any): any;
-    refresh(options: any): any;
+    refresh(options?: any): any;
     expired: boolean;
 }
 export declare abstract class Flow {
