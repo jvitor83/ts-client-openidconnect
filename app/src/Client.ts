@@ -276,13 +276,13 @@ export class ClientOAuth2 {
     {
         let request = new XMLHttpRequest();
         
+        request.open(requestObject.method, requestObject.url, false);
+        
         let headers = requestObject.headers;
         for(let header in headers)
         {
             request.setRequestHeader(header, headers[header]);
         }
-        
-        request.open(requestObject.method, requestObject.url, false);
         
         request.send(requestObject.body);
         
