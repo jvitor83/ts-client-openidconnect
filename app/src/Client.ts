@@ -519,8 +519,10 @@ export abstract class Flow
         })
         }, this.client.options));
         
-        let userInfoResponse = new UserInfoResponse(response.sub);
-        userInfoResponse = extend(userInfoResponse, response);
+        
+        let responseJSON = JSON.parse(response);
+        let userInfoResponse = new UserInfoResponse(responseJSON.sub);
+        userInfoResponse = extend(userInfoResponse, responseJSON);
         
         return userInfoResponse;
     }
