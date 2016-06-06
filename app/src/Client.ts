@@ -441,7 +441,7 @@ export class ClientOAuth2Token
         options = extend(this.client.options, options);
 
         if (!this.refreshToken) {
-            return new Error('No refresh token set');
+            throw 'No refresh token set';
         }
 
         
