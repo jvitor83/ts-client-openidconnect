@@ -342,9 +342,26 @@ export class ClientOAuth2Token
     _accessToken :string;
     
     
+    get accessTokenContent(): any
+    {
+        let content = this._accessToken.split('.')[1];
+        let returnContent = JSON.parse(content);
+        return returnContent;
+    }
+    
+    private isAccessTokenExpired()
+    {
+        let accessTokenContent = this.accessTokenContent;
+        
+        let accessTokenExp :number = accessTokenContent.exp;
+        let expired = accessTokenExp < Math.floor(Date.now() / 1000);
+        
+        return expired;
+    }
+    
     get accessToken() :string
     {
-        if(this.expired)
+        if(this.expired || this.isAccessTokenExpired)
         {
             this.refresh();
         }

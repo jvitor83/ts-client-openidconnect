@@ -44,6 +44,8 @@ export declare class ClientOAuth2Token {
     expires: Date;
     identityToken: string;
     _accessToken: string;
+    accessTokenContent: any;
+    private isAccessTokenExpired();
     accessToken: string;
     constructor(client: any, data: any);
     expiresIn(duration: any): Date;
